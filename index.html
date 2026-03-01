@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Portfolio | Benny David </title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --accent: #60a5fa;
+            --bg: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+	.profile-img {
+    		width: 250px;           /* Adjust size as needed */
+    		height: 250px;
+    		border-radius: 50%;     /* Makes it a circle */
+    		object-fit: cover;      /* Prevents stretching */
+    		border: 3px solid var(--primary);
+    		margin-bottom: 50px;
+    		box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); /* Subtle blue glow */
+}
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Animations --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Header & Nav --- */
+        header {
+            position: fixed;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.8);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; }
+        .logo span { color: var(--primary); }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--primary); }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+            padding: 0 20px;
+        }
+
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); margin: 0; font-weight: 800; }
+        
+        /* Typing Effect Wrapper */
+        .typing-text {
+            font-size: 1.5rem;
+            color: var(--accent);
+            height: 1.6em;
+            font-weight: 400;
+        }
+
+        /* --- Grid & Cards --- */
+        .container { max-width: 1100px; margin: 100px auto; padding: 0 20px; }
+        
+        h2 { font-size: 2.5rem; margin-bottom: 50px; text-align: center; }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .project-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-right: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 80px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .social-links a {
+            font-size: 1.5rem;
+            color: var(--text-dim);
+            margin: 0 15px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover { color: var(--primary); }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Benny<span>David</span></div>
+        <nav>
+            <a href="#projects">Work</a>
+            <a href="#Resume">Resume</a>
+            <a href="mailto:bennydavid9103@gmail.com">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <p style="text-transform: uppercase; letter-spacing: 4px; color: var(--accent);">Portfolio 2026</p>
+        <h1>Benny David</h1>
+	<img src="profile.jpg" alt="Professional portrait of [Your Name]" class="profile-img">
+        <div class="typing-text" id="typewriter"></div>
+    </section>
+
+    <div class="container reveal" id="projects">
+        <h2>Featured Projects</h2>
+        <div class="project-grid">
+            
+            <div class="project-card">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Market Churn Predictor</h3>
+                <p>Machine learning model predicting customer attrition with 92% accuracy.</p>
+                <div style="margin: 15px 0;">
+                    <span class="tag">Python</span><span class="tag">Scikit</span>
+                </div>
+                <a href="churn-project.html" style="color:var(--primary); text-decoration:none; font-weight:600;">Case Study →</a>
+            </div>
+
+            <div class="project-card">
+                <i class="fa-solid fa-database"></i>
+                <h3>SQL Revenue Engine</h3>
+                <p>Custom ETL pipeline that streamlined financial reporting for a $2M startup.</p>
+                <div style="margin: 15px 0;">
+                    <span class="tag">PostgreSQL</span><span class="tag">AWS</span>
+                </div>
+                <a href="sales-dashboard.html" style="color:var(--primary); text-decoration:none; font-weight:600;">Case Study →</a>
+            </div>
+
+            <div class="project-card">
+                <i class="fa-solid fa-gauge-high"></i>
+                <h3>Global Supply Chain Viz</h3>
+                <p>Real-time Tableau dashboard tracking logistics across 14 time zones.</p>
+                <div style="margin: 15px 0;">
+                    <span class="tag">Tableau</span><span class="tag">Analytics</span>
+                </div>
+                <a href="#" style="color:var(--primary); text-decoration:none; font-weight:600;">Case Study →</a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="reveal">
+        <h2>Get In Touch</h2>
+        <p style="color: var(--text-dim); margin-bottom: 30px;">Currently open to freelance data consulting and full-time roles.</p>
+        <div class="social-links">
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/benny-d-baster" target="_blank">
+    		<i class="fa-brands fa-linkedin"></i>
+	    </a>
+        </div>
+    </footer>
+
+    <script>
+        // --- Typing Effect Logic ---
+        const textElement = document.getElementById('typewriter');
+        const phrases = ['Turning raw numbers into savings.', 'Excel & R Programming Enthusiast.', 'Dashboard Designer.', 'Problem Solver.'];
+        let phraseIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentPhrase = phrases[phraseIdx];
+            
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIdx - 1);
+                charIdx--;
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIdx + 1);
+                charIdx++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIdx === currentPhrase.length) {
+                typeSpeed = 2000; // Pause at end
+                isDeleting = true;
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                phraseIdx = (phraseIdx + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        // --- Reveal on Scroll Logic ---
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Start typing effect
+        window.onload = type;
+    </script>
+</body>
+</html>
