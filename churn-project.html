@@ -155,29 +155,24 @@
         <h2>The Process</h2>
         
         <div class="process-step">
-            <h3>1. Data Cleaning & Wrangling</h3>
-            <p>I merged three disparate datasets (CRM, Billing, and Web Logs) using SQL. Handled missing values in the "Last Login" column using median imputation to maintain data integrity.</p>
+            <h3>1. Data Preparation </h3>
+            <p>I cleaned and standardized the dataset by fixing inconsistencies in manufacturer names, categories, and departments, including spacing issues, naming variations, and company suffixes. I renamed headers for clarity and created derived fields such as Month and Spend to support analysis.</p>
         </div>
 
         <div class="process-step">
-            <h3>2. Exploratory Data Analysis (EDA)</h3>
-            <p>Using Python, I discovered that customers who didn't engage with the "Onboarding Checklist" within the first 48 hours were 70% more likely to churn.</p>
-            
-            <div class="code-block">
-                <span class="highlight"># Example Python Snippet</span><br>
-                df['churn_risk'] = model.predict_proba(X_test)[:, 1]<br>
-                sns.heatmap(df.corr(), annot=True, cmap='coolwarm')
-            </div>
+            <h3>2. Pivot Table Development</h3>
+            <p>I built pivot tables to summarize spend by manufacturer, category, contract, department, and month. These pivots served as the reporting layer behind the dashboard and supported KPI such as Total Spend, Top Contract by Spend, Top Category by Spend, and Top Manufacturer by Spend.
+            </p>
         </div>
 
         <div class="process-step">
-            <h3>3. Predictive Modeling</h3>
-            <p>Tested Random Forest and XGBoost models. The final XGBoost model achieved an F1-score of 0.89, prioritizing the reduction of False Negatives (missing a customer who actually churns).</p>
+            <h3>3. Dashboard Design</h3>
+            <p>I designed an interactive dashboard using slicers, pivot charts, and KPI cards. The dashboard allows users to filter by month and contract while monitoring monthly spend trends, department distribution, and manufacturer concentration.</p>
         </div>
 
         <h2>Key Insights & Impact</h2>
         <ul style="padding-left: 20px;">
-            <li><strong>Insight 1:</strong> Support response time is the #1 correlate with churn.</li>
+            <li>The dashboard summarized<strong> $166.20M </strong>in total spend from the sample dataset.</li>
             <li><strong>Impact:</strong> Implemented an automated "High Priority" flag in Zendesk for customers with high churn-risk scores.</li>
             <li><strong>Result:</strong> Churn dropped by 12% in the first quarter following implementation.</li>
         </ul>
