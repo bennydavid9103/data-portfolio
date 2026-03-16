@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PO Spend Analysis Project</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --accent: #60a5fa;
+            --bg: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            padding: 20px 5%;
+            display: flex;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.9);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .back-btn {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover { color: var(--primary); }
+
+        /* --- Hero Section --- */
+        .project-hero {
+            padding: 100px 5% 60px;
+            text-align: center;
+            background: linear-gradient(to bottom, #1e293b, #0f172a);
+        }
+
+        .project-hero h1 { font-size: 3.5rem; margin: 10px 0; }
+        .meta-info { color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* --- Content Layout --- */
+        .container { max-width: 1800px; margin: 0 auto; padding: 16px 8px; border: 1px solid rgba(255,255,255,0.12); border-radius: 20px;
+                    background: rgba(255,255,255,0.02); box-sizing: border-box}
+
+        .dashboard-preview {
+            width: 100%;
+            max-width: 1800px;
+            margin: 0 auto 60px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 2px solid rgba(96, 165, 250, 0.35);
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        
+        .dashboard-preview iframe {
+            display: block;
+            width: 300%;
+            height: 850px;
+            border: none;
+            background: white;
+        }
+        
+        h2 { color: var(--primary); font-size: 2rem; margin-top: 50px; }
+
+        /* --- Process Timeline --- */
+        .process-step {
+            border-left: 2px solid var(--primary);
+            padding-left: 30px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        /* --- Code Block Mockup --- */
+        .code-block {
+            background: #011627;
+            padding: 20px;
+            border-radius: 12px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            color: #d6deeb;
+            overflow-x: auto;
+            border: 1px solid rgba(255,255,255,0.05);
+            margin: 20px 0;
+        }
+
+        .highlight { color: #addb67; }
+
+        /* --- CTA Footer --- */
+        .project-footer {
+            text-align: center;
+            padding: 80px 20px;
+            background: var(--card-bg);
+            margin-top: 100px;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover { background: #2563eb; transform: scale(1.05); }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+    </nav>
+
+    <header class="project-hero">
+        <span class="meta-info">Case Study: Procurement Analytics</span>
+        <h1>PO Spend Analysis Dashboard</h1>
+        <p style="color: var(--text-dim); max-width: 600px; margin: 20px auto;">
+            Built an interactive Excel dashboard to analyze purchase order spend, supplier concentration, category performance, and department-level purchasing trends.
+        </p>
+    </header>
+
+    <div class="container">
+        
+    <div class="dashboard-preview">
+        <iframe
+            src="https://1drv.ms/x/c/c024637aff385bf0/IQQ1sp9iTS1IS5wD4khEWaD8AW3pGhdbexGcDB1aFbxet7U?em=2&AllowTyping=True&ActiveCell='Dashboard'!A1&wdInConfigurator=True&wdInConfigurator=True"
+            loading="lazy"
+            scrolling="no">
+        </iframe>
+    </div>
+
+        <h2>The Challenge</h2>
+        <p>Procurement data is often stored in large tables, making it difficult to identify where money is being spent, which contracts drive the most spend, and which manufacturers or departments account for the largest share of purchases. The goal of this project was to turn raw PO data into a clear, interactive dashboard for faster business review and decision-making.</p>
+
+        <h2>The Process</h2>
+        
+        <div class="process-step">
+            <h3>1. Data Preparation </h3>
+            <p>I cleaned and standardized the dataset by fixing inconsistencies in manufacturer names, categories, and departments, including spacing issues, naming variations, and company suffixes. I renamed headers for clarity and created derived fields such as Month and Spend to support analysis.</p>
+        </div>
+
+        <div class="process-step">
+            <h3>2. Pivot Table Development</h3>
+            <p>I built pivot tables to summarize spend by manufacturer, category, contract, department, and month. These pivots served as the reporting layer behind the dashboard and supported KPI such as Total Spend, Top Contract by Spend, Top Category by Spend, and Top Manufacturer by Spend.
+            </p>
+        </div>
+
+        <div class="process-step">
+            <h3>3. Dashboard Design</h3>
+            <p>I designed an interactive dashboard using slicers, pivot charts, and KPI cards. The dashboard allows users to filter by month and contract while monitoring monthly spend trends, department distribution, and manufacturer concentration.</p>
+        </div>
+
+        <h2>Key Insights & Impact</h2>
+        <ul style="padding-left: 20px;">
+            <li>The dashboard summarized <strong>$166.20M</strong> in total spend for calendar year 2025 from the dataset.</li>
+            <li><strong>Implants </strong>appeared as the top spend category at <strong>$72.82M.</strong></li>
+            <li><strong>ORTHO-2026-014</strong> was the highest-spend contract.</li>
+            <li><strong>CoreVista Clinical Supply</strong> represented the largest manufacturer share of spend.</li>
+            <li>Department analysis showed that spending was concentrated heavily in <strong>Radiology</strong>.</li>
+            
+        </ul>
+
+        <h2>Skills</h2>
+        <ul style="padding-left: 20px;">
+            <li>Microsoft Excel, Pivot Tables, Pivot Charts, Slicers, XLOOKUP, helper columns, custom number formatting, dashboard design</li>
+        </ul>
+
+    </div>
+
+    <section class="project-footer">
+        <h2>Note</h2>
+        <p style="margin-bottom: 30px;">This project uses fictitious suppliers, contract identifiers, and sample procurement data for portfolio demonstration purposes.</p>
+        <a href="mailto:bennydavid9103@gmail.com" class="btn"><i class="fa-solid fa-envelope"></i> Send Feedback</a>
+    </section>
+
+</body>
+</html>
