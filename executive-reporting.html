@@ -167,18 +167,18 @@
         
         <div class="process-step">
             <h3>1. Data Preparation </h3>
-            <p>I cleaned and standardized the dataset by fixing inconsistencies in manufacturer names, categories, and departments, including spacing issues, naming variations, and company suffixes. I renamed headers for clarity and created derived fields such as Month and Spend to support analysis.</p>
+            <p>I cleaned and structured the dataset by standardizing manufacturer names, department labels, category values, and contract information. I also derived fields such as Month, Year, Quarter, Spend, and Each Quantity to support analysis and monthly reporting.</p>
         </div>
 
         <div class="process-step">
-            <h3>2. Pivot Table Development</h3>
-            <p>I built pivot tables to summarize spend by manufacturer, category, contract, department, and month. These pivots served as the reporting layer behind the dashboard and supported KPI such as Total Spend, Top Contract by Spend, Top Category by Spend, and Top Manufacturer by Spend.
+            <h3>2. Reporting Engine</h3>
+            <p>I built multiple pivot tables to summarize spend by month, department, manufacturer, contract, and category. These pivot tables served as the reporting engine behind the newsletter. To support month-over-month analysis, I created a comparison view that calculates whether the selected month is higher or lower than the previous month.
             </p>
         </div>
 
         <div class="process-step">
-            <h3>3. Dashboard Design</h3>
-            <p>I designed an interactive dashboard using slicers, pivot charts, and KPI cards. The dashboard allows users to filter by month and contract while monitoring monthly spend trends, department distribution, and manufacturer concentration.</p>
+            <h3>3. Newsletter Design</h3>
+            <p>I designed the final dashboard in an executive newsletter format within Excel using slicers, pivot tables, and charts. A month slicer was connected to the underlying reporting components so that when a user selects a month, the newsletter automatically refreshes to display updated metrics.</p>
         </div>
 
         <h2>Key Insights & Impact</h2>
